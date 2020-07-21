@@ -4,9 +4,9 @@
   "license": "Proprietary",
   "private": true,
   "scripts": {
-    "clean": "rimraf dist",
+    "clean": "rimraf public",
     "build": "npm-run-all clean build:css build:webpack",
-    "build:css": "postcss src/app.css -d dist",
+    "build:css": "postcss src/app.css -d public",
     "build:webpack": "cross-env NODE_ENV=production webpack --config webpack.config.js",
     "build:webpack-with-mock-data": "cross-env USE_MOCK_DATA=true NODE_ENV=production webpack --config webpack.config.js",
     "fmt": "prettier --write 'src/**/*.{js,css}'",
