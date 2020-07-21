@@ -1,14 +1,16 @@
 import React, { useEffect } from 'react';
-import $ from 'jquery';
 
 const TWITTER_SDK = 'https://platform.twitter.com/widgets.js';
 
 export function TwitterShareButton() {
   useEffect(() => {
-    const script$ = $(`<script src=${TWITTER_SDK}></script>`).appendTo('body');
+    document.head.append(`<script id=${TWITTER_SDK} src=${TWITTER_SDK}></script>`)
 
     return () => {
-      script$.remove();
+      const el = document.getElementById(TWITTER_SDK)
+      if (el != null) {
+        el.remove()
+      }
     };
   }, []);
 

@@ -1,14 +1,15 @@
 import React, { useEffect } from 'react';
-import $ from 'jquery';
 
 const HATENA_SDK = 'https://b.st-hatena.com/js/bookmark_button.js';
 
-export function HatenaBookmarkButton({ location }) {
+export function HatenaBookmarkButton() {
   useEffect(() => {
-    const script$ = $(`<script src=${HATENA_SDK}></script>`).appendTo('body');
-
+    document.head.appendChild(`<script id=${HATENA_SDK} src=${HATENA_SDK}></script>`)
     return () => {
-      script$.remove();
+      const el = document.getElementById(HATENA_SDK)
+      if (el != null) {
+        el.remove()
+      }
     };
   }, []);
 
