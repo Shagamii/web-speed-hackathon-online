@@ -4,8 +4,11 @@ const path = require('path');
 
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { NODE_ENV } = process.env
 
 module.exports = {
+  mode: NODE_ENV || 'development',
+
   entry: path.resolve(__dirname, 'src', 'app.js'),
 
   output: {
