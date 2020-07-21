@@ -10,7 +10,11 @@ export function FacebookShareButton() {
       return;
     }
 
-    document.head.appendChild(`<script id="${FACEBOOK_SDK}" crossorigin="anonymous" src=${FACEBOOK_SDK}></script>`)
+    const el = document.createElement("script")
+    el.id = FACEBOOK_SDK
+    el.crossOrigin = "anonymous"
+    el.src = FACEBOOK_SDK
+    document.head.appendChild(el)
     return () => {
       const el = document.getElementById(FACEBOOK_SDK)
       if (el != null) {
