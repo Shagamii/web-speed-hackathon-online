@@ -44,10 +44,16 @@ module.exports = {
           loader: 'babel-loader',
         },
       },
+      // {
+      //   test: /\.(png|svg|jpe?g|gif)$/,
+      //   use: {
+      //     loader: 'url-loader',
+      //   },
+      // },
       {
         test: /\.(png|svg|jpe?g|gif)$/,
         use: {
-          loader: 'url-loader',
+          loader: 'file-loader',
         },
       },
     ],
