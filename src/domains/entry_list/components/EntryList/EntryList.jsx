@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import moment from 'moment-timezone';
+import formatISO from 'date-fns/formatISO'
+import format from 'date-fns/format'
+import parseISO from 'date-fns/parseISO'
 
 import { ProportionalImage } from '../../../../foundation/components/ProportionalImage';
 
@@ -26,10 +28,10 @@ export function EntryList({ blogId, list }) {
                 <div className="entry-list-EntryList__text">
                   <time
                     className="entry-list-EntryList__published-at"
-                    dateTime={moment(entry.published_at).toISOString(true)}
-                    title={moment(entry.published_at).toISOString(true)}
+              dateTime={formatISO(parseISO(entry.published_at))}
+              title={formatISO(parseISO(entry.published_at))}
                   >
-                    {moment(entry.published_at).format('YYYY-MM-DD')}
+                    {format(parseISO(entry.published_at), 'yyyy-MM-dd')}
                   </time>
                   <p className="entry-list-EntryList__title">{entry.title}</p>
                 </div>

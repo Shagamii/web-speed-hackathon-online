@@ -1,6 +1,8 @@
 import React from 'react';
-import moment from 'moment-timezone';
 import { Link } from 'react-router-dom';
+import formatISO from 'date-fns/formatISO'
+import parseISO from 'date-fns/parseISO'
+import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 
 import { ProportionalImage } from '../../../../foundation/components/ProportionalImage';
 
@@ -21,10 +23,10 @@ export function CommentListItem({ comment }) {
         <footer className="comment-CommentListItem__footer">
           <Link to={`#comment-${comment.comment_id}`}>
             <time
-              dateTime={moment(comment.posted_at).toISOString(true)}
-              title={moment(comment.posted_at).toISOString(true)}
+              dateTime={formatISO(parseISO(comment.posted_at))}
+              title={formatISO(parseISO(comment.posted_at))}
             >
-              {moment(comment.posted_at).fromNow()}
+              {`${formatDistanceToNow(parseISO(comment.posted_at))} ago`}
             </time>
           </Link>
         </footer>
