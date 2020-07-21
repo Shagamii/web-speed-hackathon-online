@@ -4,6 +4,7 @@ const path = require('path');
 
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const StatsPlugin = require('stats-webpack-plugin')
 const { NODE_ENV } = process.env
 
 module.exports = {
@@ -21,6 +22,9 @@ module.exports = {
   },
 
   plugins: [
+    new StatsPlugin('stats.json', {
+      chunkModules: true,
+    }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
       'process.env.USE_MOCK_DATA': JSON.stringify(process.env.USE_MOCK_DATA),
