@@ -1,9 +1,8 @@
 {
   "version":2,
-  "name":"web-speed-hackathon-online",
   "builds":[
     {
-      "src":"index.js",
+      "src":"lib/server.js",
       "use":"@now/node-server"
     }
   ],
