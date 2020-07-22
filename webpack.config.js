@@ -13,6 +13,7 @@ module.exports = {
   entry: path.resolve(__dirname, 'src', 'app.js'),
 
   output: {
+    publicPath: "/",
     path: path.resolve(__dirname, 'public'),
     filename: '[name].bundle.js',
     chunkFilename: '[name].bundle.js',
