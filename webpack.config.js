@@ -8,7 +8,7 @@ const StatsPlugin = require('stats-webpack-plugin')
 const { NODE_ENV } = process.env
 
 module.exports = {
-  mode: NODE_ENV || 'development',
+  mode: NODE_ENV || 'production',
 
   entry: path.resolve(__dirname, 'src', 'app.js'),
 
@@ -62,6 +62,4 @@ module.exports = {
   target: 'web',
 
   devtool: 'inline-source-map',
-
-  mode: 'none',
 };
