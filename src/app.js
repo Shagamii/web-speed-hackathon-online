@@ -9,6 +9,4 @@ function init() {
   render();
 }
 
-window.onload = () => {
-  init();
-};
+init();
